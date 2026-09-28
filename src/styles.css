@@ -1,0 +1,182 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-saffron: var(--brand-saffron);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-maroon: var(--brand-maroon);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.09 0.018 35);
+  --foreground: oklch(0.94 0.035 83);
+  --card: oklch(0.12 0.025 35);
+  --card-foreground: oklch(0.94 0.035 83);
+  --popover: oklch(0.12 0.025 35);
+  --popover-foreground: oklch(0.94 0.035 83);
+  --primary: oklch(0.78 0.14 78);
+  --primary-foreground: oklch(0.13 0.025 35);
+  --secondary: oklch(0.17 0.035 32);
+  --secondary-foreground: oklch(0.86 0.06 78);
+  --muted: oklch(0.16 0.026 35);
+  --muted-foreground: oklch(0.68 0.035 70);
+  --accent: oklch(0.24 0.055 27);
+  --accent-foreground: oklch(0.9 0.07 77);
+  --destructive: oklch(0.58 0.18 25);
+  --destructive-foreground: oklch(0.97 0.02 84);
+  --border: oklch(0.78 0.14 78 / 18%);
+  --input: oklch(0.78 0.14 78 / 22%);
+  --ring: oklch(0.78 0.14 78 / 55%);
+  --chart-1: oklch(0.78 0.14 78);
+  --chart-2: oklch(0.54 0.12 35);
+  --chart-3: oklch(0.66 0.08 55);
+  --chart-4: oklch(0.42 0.08 27);
+  --chart-5: oklch(0.88 0.08 84);
+  --sidebar: oklch(0.1 0.02 35);
+  --sidebar-foreground: oklch(0.94 0.035 83);
+  --sidebar-primary: oklch(0.78 0.14 78);
+  --sidebar-primary-foreground: oklch(0.13 0.025 35);
+  --sidebar-accent: oklch(0.17 0.035 32);
+  --sidebar-accent-foreground: oklch(0.9 0.07 77);
+  --sidebar-border: oklch(0.78 0.14 78 / 18%);
+  --sidebar-ring: oklch(0.78 0.14 78 / 55%);
+  --brand-gold: oklch(0.8 0.15 78);
+  --brand-saffron: oklch(0.67 0.17 52);
+  --brand-ink: oklch(0.09 0.018 35);
+  --brand-maroon: oklch(0.25 0.07 27);
+}
+
+.dark {
+  --background: oklch(0.09 0.018 35);
+  --foreground: oklch(0.94 0.035 83);
+  --card: oklch(0.12 0.025 35);
+  --card-foreground: oklch(0.94 0.035 83);
+  --popover: oklch(0.12 0.025 35);
+  --popover-foreground: oklch(0.94 0.035 83);
+  --primary: oklch(0.8 0.15 78);
+  --primary-foreground: oklch(0.13 0.025 35);
+  --secondary: oklch(0.17 0.035 32);
+  --secondary-foreground: oklch(0.86 0.06 78);
+  --muted: oklch(0.16 0.026 35);
+  --muted-foreground: oklch(0.68 0.035 70);
+  --accent: oklch(0.24 0.055 27);
+  --accent-foreground: oklch(0.9 0.07 77);
+  --border: oklch(0.78 0.14 78 / 18%);
+  --input: oklch(0.78 0.14 78 / 22%);
+  --ring: oklch(0.78 0.14 78 / 55%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+  }
+}
+
+@keyframes kandhas-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kandhas-reveal {
+  from { opacity: 0; clip-path: inset(0 100% 0 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes kandhas-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.88; }
+  50% { transform: scale(1.035); opacity: 1; }
+}
+
+@keyframes kandhas-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+
+@keyframes kandhas-shimmer {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+.kandhas-rise { animation: kandhas-rise 1.1s cubic-bezier(.2,.8,.2,1) both; }
+.kandhas-reveal { animation: kandhas-reveal 1.4s cubic-bezier(.2,.8,.2,1) .25s both; }
+.kandhas-breathe { animation: kandhas-breathe 7s ease-in-out infinite; }
+.kandhas-drift { animation: kandhas-drift 9s ease-in-out infinite; }
+.kandhas-delay-1 { animation-delay: .18s; }
+.kandhas-delay-2 { animation-delay: .38s; }
+.kandhas-delay-3 { animation-delay: .58s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
